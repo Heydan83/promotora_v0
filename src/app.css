@@ -152,5 +152,6 @@ p {
 }
 
 :root {
-    --bg-dark-color: rgb(44, 62, 94)
+    --bg-dark-color: rgb(69, 78, 92);
+    --bg-light-color: rgb(255, 255, 255);
 }
