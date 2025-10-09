@@ -144,9 +144,13 @@ p {
 }
 
 .bg-color-dark {
-    background-color: rgb(44, 62, 94);;
+    background-color: rgb(44, 62, 94);
 }
 
 .semi-bold {
     font-weight: 500;
+}
+
+:root {
+    --bg-dark-color: rgb(44, 62, 94)
 }

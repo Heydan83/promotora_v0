@@ -1,10 +1,10 @@
 <div class="calendar">
-	<div class="year-tab bg-color-dark font-medium">
+	<div class="year-tab font-medium">
 		<button class="btn-prev font-medium">&lt;</button>
 		<p class="year-text">2025</p>
 		<button class="btn-next font-medium">&gt;</button>
 	</div>
-	<div class="month-tab bg-color-dark">
+	<div class="month-tab">
 		<div class="month-wrapper">
 			<button class="month-prev text-gray-500">Septiembre</button>
 			<p class="month-current-text">Octubre</p>
@@ -62,6 +62,11 @@
 </div> -->
 
 <style>
+    .calendar {
+        height: 100vh;
+        background-color: var(--bg-dark-color);
+    }
+
 	.year-tab {
 		display: flex;
 		justify-content: space-between;
