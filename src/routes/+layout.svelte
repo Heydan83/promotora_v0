@@ -39,11 +39,12 @@
 		max-width: 2rem;
 		max-height: 2rem;
 		margin: 1rem;
+		margin-right: 4rem;
 	}
 
 	@media (max-width: 991px) {
 		.header {
-			height: 2.5rem;
+			height: 3.5rem;
 		}
 
 		.logo {
@@ -54,9 +55,10 @@
 		}
 
 		.hamburger {
-			max-width: 1rem;
-			max-height: 1rem;
+			max-width: 1.5rem;
+			max-height: 1.5rem;
 			margin: 2rem;
+			margin-right: 2.5rem;
 		}
 	}
 </style>
