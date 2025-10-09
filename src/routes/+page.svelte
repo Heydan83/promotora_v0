@@ -1,7 +1,19 @@
+<script lang="ts">
+    const currentDate: Date = new Date();
+    const fromYear = 2000;
+    const year: number = currentDate.getFullYear() - fromYear + 1;
+</script>
+
 <div class="calendar">
 	<div class="year-tab font-medium">
 		<button class="btn-prev font-medium">&lt;</button>
-		<p class="year-text">2025</p>
+		<p class="year-text">
+            <select class="years-select">
+                {#each Array(year) as _, i}
+                    <option selected={fromYear + i == currentDate.getFullYear()} value={fromYear + i}>{fromYear + i}</option>
+                {/each}
+            </select>
+        </p>
 		<button class="btn-next font-medium">&gt;</button>
 	</div>
 	<div class="month-tab">
@@ -64,14 +76,15 @@
 <style>
     .calendar {
         height: 100vh;
-        background-color: var(--bg-dark-color);
+        background-color: var(--bg-light-color);
     }
 
 	.year-tab {
 		display: flex;
 		justify-content: space-between;
-		color: white;
+		color: black;
 		height: 3rem;
+        border-bottom: 1px solid rgb(218, 218, 219);
 	}
 
 	.btn-prev {
@@ -87,7 +100,7 @@
 	}
 
 	.month-tab {
-		height: 4rem;
+		height: 5rem;
 	}
 
     .month-wrapper {
@@ -95,18 +108,21 @@
 		justify-content: space-around;
         padding-top: 1rem;
         text-align: center;
+        border-bottom: 1px solid rgb(218, 218, 219);
     }
 
     .month-prev {
+        margin-bottom: 0.7rem;
         width: 5rem;
     }
 
     .month-next {
+        margin-bottom: 0.7rem;
         width: 5rem;
     }
 
 	.month-current-text {
-		color: white;
+		color: black;
         width: 5rem;
 	}
 
@@ -116,6 +132,7 @@
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         gap: 1rem;
         align-items: center;
+        padding: 0.5rem;
     }
 
     .days-container div {

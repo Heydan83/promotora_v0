@@ -26,6 +26,7 @@
 		justify-content: space-between;
 		height: 5rem;
 		align-items: center;
+		border-bottom: 1px solid rgb(218, 218, 219);
 	}
 
 	.logo {
