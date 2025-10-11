@@ -79,7 +79,7 @@
 
 	.days-container {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 		grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 		gap: 1rem;
 		align-items: center;
@@ -93,7 +93,7 @@
 
 	.day {
 		background-color: var(--bg-grey-light-color);
-		height: calc(5vh + 10px);
+		height: calc(5vh + 15px);
 		border-radius: 10px;
 		text-align: center;
 	}
