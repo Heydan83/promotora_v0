@@ -155,3 +155,9 @@ p {
     --bg-dark-color: rgb(69, 78, 92);
     --bg-light-color: rgb(255, 255, 255);
 }
+
+.left-arrow-small {
+    height: 2.2rem;
+    width: 2.2rem;
+    justify-self: center;
+}

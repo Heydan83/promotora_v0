@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { leftArrow, rightArrow } from "$assets";
+
     const currentDate: Date = new Date();
     const fromYear = 2000;
     const year: number = currentDate.getFullYear() - fromYear + 1;
@@ -6,7 +8,7 @@
 
 <div class="calendar">
 	<div class="year-tab font-medium">
-		<button class="btn-prev font-medium">&lt;</button>
+		<button class="btn-prev font-medium"><img src={leftArrow} alt="Mes anterior" class="left-arrow-small"></button>
 		<p class="year-text">
             <select class="years-select">
                 {#each Array(year) as _, i}
@@ -14,7 +16,7 @@
                 {/each}
             </select>
         </p>
-		<button class="btn-next font-medium">&gt;</button>
+		<button class="btn-next font-medium"><img src={rightArrow} alt="Mes anterior" class="left-arrow-small"></button>
 	</div>
 	<div class="month-tab">
 		<div class="month-wrapper">
@@ -88,11 +90,11 @@
 	}
 
 	.btn-prev {
-		width: 5rem;
+		width: 45%;
 	}
 
 	.btn-next {
-		width: 5rem;
+        width: 45%;
 	}
 
 	.year-text {
