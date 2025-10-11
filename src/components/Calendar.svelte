@@ -1,24 +1,26 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import { leftArrow, rightArrow } from '$assets';
-	import CalendarDay from '$components/CalendarDay.svelte';
+	import CalendarDays from '$components/CalendarDays.svelte';
+	import type { MonthName, MonthMap } from '$lib/types/types';
 
 	const currentDate: Date = new Date();
 	const fromYear = 2000;
 	const year: number = currentDate.getFullYear() - fromYear + 1;
-	const months = new Map<number, string>([
-		[1, 'Enero'],
-		[2, 'Febrero'],
-		[3, 'Marzo'],
-		[4, 'Abril'],
-		[5, 'Mayo'],
-		[6, 'Junio'],
-		[7, 'Julio'],
-		[8, 'Agosto'],
-		[9, 'Septiembre'],
-		[10, 'Octubre'],
-		[11, 'Noviembre'],
-		[12, 'Diciembre']
+
+	const months: MonthMap = new Map<number, MonthName>([
+		[1, 'Enero' as MonthName],
+		[2, 'Febrero' as MonthName],
+		[3, 'Marzo' as MonthName],
+		[4, 'Abril' as MonthName],
+		[5, 'Mayo' as MonthName],
+		[6, 'Junio' as MonthName],
+		[7, 'Julio' as MonthName],
+		[8, 'Agosto' as MonthName],
+		[9, 'Septiembre' as MonthName],
+		[10, 'Octubre' as MonthName],
+		[11, 'Noviembre' as MonthName],
+		[12, 'Diciembre' as MonthName]
 	]);
 	let selectedYear = $state(currentDate.getFullYear());
 	let selectedMonth = $state(currentDate.getMonth() + 1);
@@ -80,7 +82,7 @@
 			{/key}
 		</div>
 	</div>
-	<CalendarDay />
+	<CalendarDays year={selectedYear} month={selectedMonth} />
 </div>
 
 <style>

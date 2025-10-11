@@ -155,6 +155,7 @@ p {
     --bg-dark-color: rgb(69, 78, 92);
     --bg-light-color: rgb(255, 255, 255);
     --bg-grey-color: rgb(235, 239, 244);
+    --bg-grey-light-color: rgb(239, 241, 244);
 }
 
 .left-arrow-small {
