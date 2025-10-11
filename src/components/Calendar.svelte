@@ -22,7 +22,6 @@
 	]);
 	let selectedYear = $state(currentDate.getFullYear());
 	let selectedMonth = $state(currentDate.getMonth() + 1);
-    let animateMonth = $state(0);
 
 	function changeYear(prevOrNext: string): void {
 		if (prevOrNext === 'prev') {
@@ -32,11 +31,9 @@
 
 	function changeMonth(prevOrNext: string): void {
 		if (prevOrNext === 'prev') {
-            animateMonth = 100;
 			if (selectedMonth === 1) selectedMonth = 12;
 			else selectedMonth -= 1;
 		} else {
-            animateMonth = -100;
             if (selectedMonth === 12) selectedMonth = 1;
 		    else selectedMonth += 1;
         }
@@ -67,17 +64,17 @@
 				<button
 					class="month-prev text-gray-500"
 					onclick={() => changeMonth('prev')}
-					out:fly={{ x: -100, duration: 25 }}
+					out:fly={{ x: -100, duration: 40 }}
 				>
 					{selectedMonth === 1 ? months.get(12) : months.get(selectedMonth - 1)}
 				</button>
-				<p class="month-current-text" out:fly={{ x: -100, duration: 25 }}>
+				<p class="month-current-text" out:fly={{ x: -100, duration: 40 }}>
 					{months.get(selectedMonth)}
 				</p>
 				<button
 					class="month-next text-gray-500"
 					onclick={() => changeMonth('next')}
-					out:fly={{ x: -100, duration: 25 }}
+					out:fly={{ x: -100, duration: 40 }}
 					>{selectedMonth === 12 ? months.get(1) : months.get(selectedMonth + 1)}</button
 				>
 			{/key}
