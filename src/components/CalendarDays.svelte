@@ -93,7 +93,7 @@
 
 	.day {
 		background-color: var(--bg-grey-light-color);
-		height: calc(5vh + 40px);
+		height: calc(5vh + 10px);
 		border-radius: 10px;
 		text-align: center;
 	}
