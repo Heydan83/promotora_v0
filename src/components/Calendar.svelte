@@ -22,6 +22,7 @@
 	]);
 	let selectedYear = $state(currentDate.getFullYear());
 	let selectedMonth = $state(currentDate.getMonth() + 1);
+    let animateMonth = $state(0);
 
 	function changeYear(prevOrNext: string): void {
 		if (prevOrNext === 'prev') {
@@ -31,10 +32,14 @@
 
 	function changeMonth(prevOrNext: string): void {
 		if (prevOrNext === 'prev') {
+            animateMonth = 100;
 			if (selectedMonth === 1) selectedMonth = 12;
 			else selectedMonth -= 1;
-		} else if (selectedMonth === 12) selectedMonth = 1;
-		else selectedMonth += 1;
+		} else {
+            animateMonth = -100;
+            if (selectedMonth === 12) selectedMonth = 1;
+		    else selectedMonth += 1;
+        }
 	}
 </script>
 
