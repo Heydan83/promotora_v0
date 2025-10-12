@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { DayMap, DayName } from '$lib/types/types';
+	import CalendarDay from './CalendarDay.svelte';
 
 	interface CalendarDays {
 		year: number;
@@ -7,7 +8,11 @@
 	}
 
 	let { year, month }: CalendarDays = $props();
-	const date = new Date(year, month - 1);
+	$inspect('year', year);
+	$inspect('month', month);
+
+	const date = $derived(new Date(year, month - 1));
+	const lastDate = $derived(new Date(year, month, 0));
 	const days: DayMap = new Map<number, DayName>([
 		[1, 'Lunes' as DayName],
 		[2, 'Martes' as DayName],
@@ -18,7 +23,12 @@
 		[7, 'Domingo' as DayName]
 	]);
 
-	$inspect(date.getDay());
+	$inspect('date:', date);
+	$inspect('lastDate:', lastDate);
+	$inspect('date.getDay:', date.getDay());
+	$inspect('lastDate.getDay:', lastDate.getDay());
+	$inspect('date.getDate:', date.getDate());
+	$inspect('lastDate.getDate:', lastDate.getDate());
 </script>
 
 <div class="day-name-container">
@@ -31,37 +41,12 @@
 	<div class="day-name">Dom</div>
 </div>
 <div class="days-container">
-	<div class="day">1</div>
-	<div class="day">2</div>
-	<div class="day">3</div>
-	<div class="day">3</div>
-	<div class="day">5</div>
-	<div class="day">6</div>
-	<div class="day">7</div>
-	<div class="day">8</div>
-	<div class="day">9</div>
-	<div class="day">10</div>
-	<div class="day">11</div>
-	<div class="day">12</div>
-	<div class="day">13</div>
-	<div class="day">14</div>
-	<div class="day">15</div>
-	<div class="day">16</div>
-	<div class="day">17</div>
-	<div class="day">18</div>
-	<div class="day">19</div>
-	<div class="day">20</div>
-	<div class="day">21</div>
-	<div class="day">22</div>
-	<div class="day">23</div>
-	<div class="day">24</div>
-	<div class="day">25</div>
-	<div class="day">26</div>
-	<div class="day">27</div>
-	<div class="day">28</div>
-	<div class="day">29</div>
-	<div class="day">30</div>
-	<div class="day">31</div>
+	{#each Array(date.getDay() - 1) as _, i}
+		<CalendarDay />
+	{/each}
+	{#each Array(lastDate.getDate()) as _, i}
+		<CalendarDay day={i + 1} />
+	{/each}
 </div>
 
 <style>
@@ -79,22 +64,11 @@
 
 	.days-container {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 		grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-		gap: 1rem;
 		align-items: center;
 		padding: 0.5rem;
-		gap: 10px;
-	}
-
-	.days-container div {
-		text-align: center;
-	}
-
-	.day {
-		background-color: var(--bg-grey-light-color);
-		height: calc(5vh + 15px);
-		border-radius: 10px;
+		gap: 5px;
 		text-align: center;
 	}
 </style>

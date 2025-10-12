@@ -5,7 +5,7 @@
 	import type { MonthName, MonthMap } from '$lib/types/types';
 
 	const currentDate: Date = new Date();
-	const fromYear = 2000;
+	const fromYear: number = 2000;
 	const year: number = currentDate.getFullYear() - fromYear + 1;
 
 	const months: MonthMap = new Map<number, MonthName>([
@@ -36,9 +36,9 @@
 			if (selectedMonth === 1) selectedMonth = 12;
 			else selectedMonth -= 1;
 		} else {
-            if (selectedMonth === 12) selectedMonth = 1;
-		    else selectedMonth += 1;
-        }
+			if (selectedMonth === 12) selectedMonth = 1;
+			else selectedMonth += 1;
+		}
 	}
 </script>
 
@@ -47,15 +47,15 @@
 		<button class="btn-prev font-medium" onclick={() => changeYear('prev')}>
 			<img src={leftArrow} alt="Mes anterior" class="left-arrow-small" />
 		</button>
-		<p class="year-text">
-			<select class="years-select">
-				{#each Array(year) as _, i}
-					<option selected={fromYear + i == selectedYear} value={fromYear + i}
-						>{fromYear + i}</option
-					>
-				{/each}
-			</select>
-		</p>
+		<select id="years" class="years-select">
+			{#each Array(year) as _, i}
+				<option
+					id={(fromYear + i).toString()}
+					selected={fromYear + i == selectedYear}
+					value={fromYear + i}>{fromYear + i}</option
+				>
+			{/each}
+		</select>
 		<button class="btn-next font-medium" onclick={() => changeYear('next')}
 			><img src={rightArrow} alt="Siguiente mes" class="left-arrow-small" /></button
 		>
@@ -105,10 +105,6 @@
 
 	.btn-next {
 		width: 45%;
-	}
-
-	.year-text {
-		margin-top: 0.7rem;
 	}
 
 	.month-tab {
