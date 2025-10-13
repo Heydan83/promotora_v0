@@ -44,13 +44,16 @@
 	.day-name-container {
 		display: flex;
 		justify-content: space-around;
+		padding-left: 0.7rem;
+		padding-right: 0.7rem;
+		background-color: var(--bg-grey-color);
+		border-radius: 10px;
 	}
 
 	.day-name {
 		padding: 0.5rem;
 		width: 14.28%;
 		text-align: center;
-		background-color: var(--bg-grey-color);
 	}
 
 	.days-container {
