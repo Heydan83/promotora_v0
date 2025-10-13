@@ -1,33 +1,36 @@
 <script lang="ts">
 	interface Day {
-		day?: number;
+        year: number;
+        month: number;
+		day: number;
 	}
 
-	let { day }: Day = $props();
-	let dayClass: string = $derived(day ? 'day' : 'empty-day');
-</script>
+	let { year, month, day }: Day = $props();
+    const currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0); 
+    const receivedDate = new Date(year, month - 1, day)
+    const today = currentDate.toDateString() === receivedDate.toDateString() ? 'today' : 'day';
+</script> 
 
-<div class={dayClass}>{day}</div>
+<div class={today}>{day}</div>
 
 <style>
-	.empty-day {
-		height: calc(5vh + 15px);
-		border-radius: 10px;
-		text-align: center;
-	}
-
 	.day {
 		background-color: var(--bg-grey-light-color);
 		border-radius: 10px;
 		text-align: center;
-        height: 5rem;
+        height: 5rem; 
 	}
 
-	@media (max-width: 991px) {
-        .empty-day {
-            height: calc(5vh + 15px);   
-        }
+    .today {
+        background-color: black;
+        color: white;
+		border-radius: 10px;
+		text-align: center;
+        height: 5rem; 
+    }
 
+	@media (max-width: 991px) {
 		.day {
 			height: calc(5vh + 15px);
 		}

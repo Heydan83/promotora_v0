@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { DayMap, DayName } from '$lib/types/types';
 	import CalendarDay from './CalendarDay.svelte';
+	import CalendarEmptyDay from './CalendarEmptyDay.svelte';
 
 	interface CalendarDays {
 		year: number;
@@ -11,15 +12,15 @@
 
 	const date = $derived(new Date(year, month - 1));
 	const lastDate = $derived(new Date(year, month, 0));
-	const days: DayMap = new Map<number, DayName>([
-		[1, 'Lunes' as DayName],
-		[2, 'Martes' as DayName],
-		[3, 'Miercoles' as DayName],
-		[4, 'Jueves' as DayName],
-		[5, 'Viernes' as DayName],
-		[6, 'Sabado' as DayName],
-		[7, 'Domingo' as DayName]
-	]);
+	// const days: DayMap = new Map<number, DayName>([
+	// 	[1, 'Lunes' as DayName],
+	// 	[2, 'Martes' as DayName],
+	// 	[3, 'Miercoles' as DayName],
+	// 	[4, 'Jueves' as DayName],
+	// 	[5, 'Viernes' as DayName],
+	// 	[6, 'Sabado' as DayName],
+	// 	[7, 'Domingo' as DayName]
+	// ]);
 </script>
 
 <div class="day-name-container">
@@ -33,10 +34,10 @@
 </div>
 <div class="days-container">
 	{#each Array(date.getDay() - 1 < 0 ? 0 : date.getDay() - 1) as _, i}
-		<CalendarDay />
+		<CalendarEmptyDay />
 	{/each}
 	{#each Array(lastDate.getDate()) as _, i}
-		<CalendarDay day={i + 1} />
+		<CalendarDay {year} {month} day={i + 1} />
 	{/each}
 </div>
 
