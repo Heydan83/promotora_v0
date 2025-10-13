@@ -7,12 +7,10 @@
 
 	let { year, month, day }: Day = $props();
 	const currentDate = new Date();
-	currentDate.setHours(0, 0, 0, 0);
-	const receivedDate = new Date(year, month - 1, day);
-	const today = currentDate.toDateString() === receivedDate.toDateString() ? 'today' : 'day';
+	const receivedDate = $derived(new Date(year, month - 1, day));
 </script>
 
-<div class={today}>{day}</div>
+<div class={currentDate.toDateString() === receivedDate.toDateString() ? 'today' : 'day'}>{day}</div>
 
 <style>
 	.day {

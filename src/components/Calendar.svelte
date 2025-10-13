@@ -76,9 +76,9 @@
 				>
 					{selectedMonth === 1 ? months.get(12) : months.get(selectedMonth - 1)}
 				</button>
-				<p class="month-current-text" out:fly={{ x: -100, duration: 40 }}>
+				<h4 class="month-current-text" out:fly={{ x: -100, duration: 40 }}>
 					{months.get(selectedMonth)}
-				</p>
+				</h4>
 				<button
 					class="month-next text-gray-500"
 					onclick={() => changeMonth('next')}
@@ -109,6 +109,10 @@
 		width: 45%;
 	}
 
+	.years-select {
+		font-weight: bold;
+	}
+
 	.btn-next {
 		width: 45%;
 	}
@@ -136,7 +140,9 @@
 	}
 
 	.month-current-text {
+		margin-bottom: 0.7rem;
 		color: black;
 		width: 5rem;
+		font-weight: bold;
 	}
 </style>

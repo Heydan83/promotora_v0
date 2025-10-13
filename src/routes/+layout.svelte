@@ -15,10 +15,10 @@
 <div class="header">
 	<img src={logo} alt="logo casa 30-30" class="logo" />
 	<nav class="menu">
-		<li class="menu-item semi-bold" class:menu-item-selected={navigation.getCurrentPage() === 'Calendario'}><a href="/calendario"><h3>Calendario</h3></a></li>
-		<li class="menu-item semi-bold" class:menu-item-selected={navigation.getCurrentPage() === 'Clientes'}><a href="/clientes"><h3>Clientes</h3></a></li>
-		<li class="menu-item semi-bold" class:menu-item-selected={navigation.getCurrentPage() === 'Promotoras'}><a href="/promotoras"><h3>Promotoras</h3></a></li>
-		<li class="menu-item semi-bold" class:menu-item-selected={navigation.getCurrentPage() === 'Configuracion'}><a href="/configuracion"><h3>Configuración</h3></a></li>
+		<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Calendario'}><a href="/calendario"><h3>Calendario</h3></a></li>
+		<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Clientes'}><a href="/clientes"><h3>Clientes</h3></a></li>
+		<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Promotoras'}><a href="/promotoras"><h3>Promotoras</h3></a></li>
+		<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Configuracion'}><a href="/configuracion"><h3>Configuración</h3></a></li>
 	</nav>
 	<button>
 		<img src={hamburger} alt="" class="hamburger" />
@@ -53,6 +53,10 @@
 		width: 10rem;
 		padding-bottom: 0.5rem;
 		text-align: center;
+	}
+
+	.menu-item h3 {
+		font-weight: bold;
 	}
 
 	.menu-item-selected {
