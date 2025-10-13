@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	import { leftArrow, rightArrow } from '$assets';
 	import CalendarDays from '$components/CalendarDays.svelte';
 	import type { MonthName, MonthMap } from '$lib/types/types';
@@ -42,12 +42,18 @@
 	}
 </script>
 
-<div class="calendar">
+<div class="calendar" in:fade={{ duration: 150 }}>
 	<div class="year-tab font-medium">
 		<button class="btn-prev font-medium" onclick={() => changeYear('prev')}>
 			<img src={leftArrow} alt="Mes anterior" class="left-arrow-small" />
 		</button>
-		<select id="years" class="years-select">
+		<select
+			id="years"
+			class="years-select"
+			onchange={(e) => {
+				if (e.target) selectedYear = Number((e.target as HTMLSelectElement).value);
+			}}
+		>
 			{#each Array(year) as _, i}
 				<option
 					id={(fromYear + i).toString()}

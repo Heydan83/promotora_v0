@@ -8,8 +8,6 @@
 	}
 
 	let { year, month }: CalendarDays = $props();
-	$inspect('year', year);
-	$inspect('month', month);
 
 	const date = $derived(new Date(year, month - 1));
 	const lastDate = $derived(new Date(year, month, 0));
@@ -22,13 +20,6 @@
 		[6, 'Sabado' as DayName],
 		[7, 'Domingo' as DayName]
 	]);
-
-	$inspect('date:', date);
-	$inspect('lastDate:', lastDate);
-	$inspect('date.getDay:', date.getDay());
-	$inspect('lastDate.getDay:', lastDate.getDay());
-	$inspect('date.getDate:', date.getDate());
-	$inspect('lastDate.getDate:', lastDate.getDate());
 </script>
 
 <div class="day-name-container">
@@ -41,7 +32,7 @@
 	<div class="day-name">Dom</div>
 </div>
 <div class="days-container">
-	{#each Array(date.getDay() - 1) as _, i}
+	{#each Array(date.getDay() - 1 < 0 ? 0 : date.getDay() - 1) as _, i}
 		<CalendarDay />
 	{/each}
 	{#each Array(lastDate.getDate()) as _, i}

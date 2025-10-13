@@ -1,9 +1,8 @@
 <script lang="ts">
-    import Calendar from "$components/Calendar.svelte";
 	import { navigation } from "$states";
 	import { fade } from "svelte/transition";
 
-    navigation.navigateTo('Calendario');
+    navigation.navigateTo('Promotoras');
 </script>
 
-<Calendar />
+<h1 in:fade={{ duration: 150 }}>Promotoras</h1>

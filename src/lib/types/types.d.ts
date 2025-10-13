@@ -24,3 +24,10 @@ export type DayName =
     | 'Domingo'
 
 export type DayMap = Map<number, DayName>;
+
+export type Menu = 
+    | 'Calendario'
+    | 'Clientes'
+    | 'Promotoras'
+    | 'Configuracion'
+    | ''

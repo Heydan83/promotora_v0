@@ -2,6 +2,7 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$assets/logo.png';
+	import { navigation } from '$states';
 	import { hamburger } from '$assets';
 
 	let { children } = $props();
@@ -13,6 +14,12 @@
 
 <div class="header">
 	<img src={logo} alt="logo casa 30-30" class="logo" />
+	<nav class="menu">
+		<li class="menu-item semi-bold" class:menu-item-selected={navigation.getCurrentPage() === 'Calendario'}><a href="/calendario"><h3>Calendario</h3></a></li>
+		<li class="menu-item semi-bold" class:menu-item-selected={navigation.getCurrentPage() === 'Clientes'}><a href="/clientes"><h3>Clientes</h3></a></li>
+		<li class="menu-item semi-bold" class:menu-item-selected={navigation.getCurrentPage() === 'Promotoras'}><a href="/promotoras"><h3>Promotoras</h3></a></li>
+		<li class="menu-item semi-bold" class:menu-item-selected={navigation.getCurrentPage() === 'Configuracion'}><a href="/configuracion"><h3>Configuración</h3></a></li>
+	</nav>
 	<button>
 		<img src={hamburger} alt="" class="hamburger" />
 	</button>
@@ -36,7 +43,24 @@
 		margin-left: 4rem;
 	}
 
+	.menu {
+		display: flex;
+		justify-content: space-between;
+		width: 60%;
+	}
+
+	.menu-item {
+		width: 10rem;
+		padding-bottom: 0.5rem;
+		text-align: center;
+	}
+
+	.menu-item-selected {
+		border-bottom: 1px solid black;
+	}
+
 	.hamburger {
+		display: none;
 		max-width: 2rem;
 		max-height: 2rem;
 		margin: 1rem;
@@ -56,6 +80,7 @@
 		}
 
 		.hamburger {
+			display: inline-block;
 			max-width: 1.5rem;
 			max-height: 1.5rem;
 			margin: 2rem;
