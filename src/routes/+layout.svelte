@@ -56,7 +56,7 @@
 </div>
 
 {#if isHamburgerMenuOpen}
-	<HamburgerMenu />
+	<HamburgerMenu {openCloseHamburgerMenu} />
 {/if}
 
 {@render children?.()}
