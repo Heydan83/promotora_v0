@@ -29,6 +29,8 @@
 		width: 20vh;
         height: 100vh;
         right: 0;
+        border: 1px solid black;
+        box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
 	}
 
 	.menu-item {
