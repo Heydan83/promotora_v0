@@ -40,7 +40,8 @@
         right: 0;
         border: 1px solid black;
         box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
-        border-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
         align-items: center;
 	}
 
