@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
-	import { leftArrow, rightArrow } from '$assets';
+	import { leftArrowIcon, rightArrowIcon } from '$assets';
 	import type { MonthName, MonthMap } from '$lib/types/types';
 	import CalendarDays from '$components/CalendarDays.svelte';
 	import CalendarMonthList from './CalendarMonthList.svelte';
@@ -64,7 +64,7 @@
 <div class="calendar" in:fade={{ duration: 150 }}>
 	<div class="year-tab font-medium">
 		<button class="btn-prev font-medium" onclick={() => changeYear('prev')}>
-			<img src={leftArrow} alt="Mes anterior" class="left-arrow-small" />
+			<img src={leftArrowIcon} alt="Mes anterior" class="left-arrow-small" />
 		</button>
 		<select
 			id="years"
@@ -82,7 +82,7 @@
 			{/each}
 		</select>
 		<button class="btn-next font-medium" onclick={() => changeYear('next')}
-			><img src={rightArrow} alt="Siguiente mes" class="left-arrow-small" /></button
+			><img src={rightArrowIcon} alt="Siguiente mes" class="left-arrow-small" /></button
 		>
 	</div>
 	<div class="month-tab">

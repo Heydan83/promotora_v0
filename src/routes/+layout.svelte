@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { innerWidth } from 'svelte/reactivity/window';
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$assets/logo.png';
 	import { navigation } from '$states';
-	import { hamburger } from '$assets';
+	import { hamburgerIcon } from '$assets';
 
 	let { children } = $props();
 </script>
@@ -14,15 +15,37 @@
 
 <div class="header">
 	<img src={logo} alt="logo casa 30-30" class="logo" />
-	<nav class="menu">
-		<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Calendario'}><a href="/calendario"><h3>Calendario</h3></a></li>
-		<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Clientes'}><a href="/clientes"><h3>Clientes</h3></a></li>
-		<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Promotoras'}><a href="/promotoras"><h3>Promotoras</h3></a></li>
-		<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Configuracion'}><a href="/configuracion"><h3>Configuración</h3></a></li>
-	</nav>
-	<button>
-		<img src={hamburger} alt="" class="hamburger" />
-	</button>
+	{#if innerWidth.current}
+		{#if innerWidth.current > 990}
+			<nav class="menu">
+				<li
+					class="menu-item"
+					class:menu-item-selected={navigation.getCurrentPage() === 'Calendario'}
+				>
+					<a href="/calendario"><h3>Calendario</h3></a>
+				</li>
+				<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Clientes'}>
+					<a href="/clientes"><h3>Clientes</h3></a>
+				</li>
+				<li
+					class="menu-item"
+					class:menu-item-selected={navigation.getCurrentPage() === 'Promotoras'}
+				>
+					<a href="/promotoras"><h3>Promotoras</h3></a>
+				</li>
+				<li
+					class="menu-item"
+					class:menu-item-selected={navigation.getCurrentPage() === 'Configuracion'}
+				>
+					<a href="/configuracion"><h3>Configuración</h3></a>
+				</li>
+			</nav>
+		{:else}
+			<button>
+				<img src={hamburgerIcon} alt="" class="hamburger" />
+			</button>
+		{/if}
+	{/if}
 </div>
 
 {@render children?.()}
@@ -30,7 +53,7 @@
 <style>
 	.header {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-evenly;
 		height: 5rem;
 		align-items: center;
 		border-bottom: 1px solid rgb(218, 218, 219);
@@ -74,6 +97,7 @@
 	@media (max-width: 991px) {
 		.header {
 			height: 3.5rem;
+			justify-content: space-between;
 		}
 
 		.logo {

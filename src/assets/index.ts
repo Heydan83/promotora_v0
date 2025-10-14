@@ -1,5 +1,6 @@
 export { default as logo } from './logo.png';
-export { default as hamburger } from './hamburger.png';
-export { default as rightArrow } from './right-arrow.png';
-export { default as leftArrow } from './left-arrow.png';
-export { default as loading } from './Loading_icon.gif';
+export { default as hamburgerIcon } from './hamburger.png';
+export { default as rightArrowIcon } from './right-arrow.png';
+export { default as leftArrowIcon } from './left-arrow.png';
+export { default as loadingIcon } from './Loading_icon.gif';
+export { default as closeIcon } from './close.png';
