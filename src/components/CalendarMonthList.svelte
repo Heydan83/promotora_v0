@@ -20,21 +20,20 @@
         mouseX: number;
         mouseY: number;
         selectedMonth: number;
-        isMonthListOpen: boolean;
+        changeMonthFromList: Function;
+        closeMonthList: Function;
     }
 
-    let { mouseX, mouseY, selectedMonth , isMonthListOpen}: CalendarMonthList = $props();
-
-    function changeMonth(newSelectedMonth: number): void {
-        selectedMonth = newSelectedMonth;
-        isMonthListOpen = !isMonthListOpen;
-    }
+    let { mouseX, mouseY, selectedMonth, changeMonthFromList, closeMonthList}: CalendarMonthList = $props();
 </script>
 
 <div class="month-list" style={`left: ${mouseX}px; top: ${mouseY}px;`}>
+    <div class="btn-container close-btn">
+        <button onclick={() => closeMonthList()}>X</button>
+    </div>
     {#each months as month}
-        <div class="btn-container" class:selected-month={month[0] === selectedMonth}>
-            <button class="btn-month" onclick={() => changeMonth(month[0])}>{month[1]}</button>
+        <div class="btn-container" style={`margin-top: ${month[0] === 1 ? '1.5rem' : 'unset'};`} class:selected-month={month[0] === selectedMonth}>
+            <button class="btn-month" onclick={() => changeMonthFromList(month[0])}>{month[1]}</button>
         </div>
     {/each}
 </div>
@@ -43,7 +42,6 @@
     .month-list {
         background-color: white;
         position: absolute;
-        width: max-content;
         border-radius: 10px;
         padding: 0.2rem 1rem;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
@@ -57,8 +55,20 @@
         text-align: center;
     }
 
+    .btn-container:hover {
+        background-color: var(--bg-dark-color);
+        color: white;
+    }
+
     .selected-month {
         background-color: black;
         color: white;
+    }
+
+    .close-btn {
+        position: absolute;
+        right: 0;
+        width: max-content;
+        margin-right: 0.5rem;
     }
 </style>
