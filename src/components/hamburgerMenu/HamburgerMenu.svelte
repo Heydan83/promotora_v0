@@ -26,7 +26,7 @@
 		justify-content: space-evenly;
         flex-direction: column;
         flex-wrap: wrap;
-		width: 20vh;
+		width: 40vh;
         height: 100vh;
         right: 0;
         border: 1px solid black;
