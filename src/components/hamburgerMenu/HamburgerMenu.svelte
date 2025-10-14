@@ -1,8 +1,9 @@
 <script lang="ts">
     import { navigation } from '$states';
+	import { fade, slide } from 'svelte/transition';
 </script>
 
-<nav class="menu">
+<nav class="menu" in:slide={{ duration: 150, axis: 'x' }}>
 	<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Calendario'}>
 		<a href="/calendario"><h3>Calendario</h3></a>
 	</li>
