@@ -4,7 +4,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$assets/logo.png';
 	import { navigation } from '$states';
-	import { hamburgerIcon } from '$assets';
+	import { closeIcon, hamburgerIcon } from '$assets';
 	import HamburgerMenu from '$components/hamburgerMenu/HamburgerMenu.svelte';
 
 	let isHamburgerMenuOpen = $state(false);
@@ -49,7 +49,7 @@
 			</nav>
 		{:else}
 			<button onclick={openCloseHamburgerMenu}>
-				<img src={hamburgerIcon} alt="" class="hamburger" />
+				<img src={isHamburgerMenuOpen ? closeIcon : hamburgerIcon} alt="" class="hamburger" />
 			</button>
 		{/if}
 	{/if}
