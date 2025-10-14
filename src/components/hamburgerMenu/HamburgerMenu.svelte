@@ -34,8 +34,8 @@
 		/* justify-content: space-between; */
         flex-direction: column;
         flex-wrap: wrap;
-        row-gap: 5rem;
-		width: 40vh;
+        row-gap: 3rem;
+		width: 35vh;
         height: 100vh;
         right: 0;
         border: 1px solid black;
