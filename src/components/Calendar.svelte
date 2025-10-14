@@ -107,7 +107,7 @@
 	<CalendarMonthList {mouseX} {mouseY} {selectedMonth} {isMonthListOpen} />
 {/if}
 
-<iframe src="https://maps.app.goo.gl/UeijPWgqdQA5ReYb9" title="mapa"></iframe>
+<iframe title="mapa" width="600" height="450" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6145.160129343955!2d-119.65241064970873!3d36.338625886909924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8094c3a3d5e7d5f7%3A0xd9d537813059e9a5!2sSave%20Mart!5e1!3m2!1sen!2smx!4v1760471543536!5m2!1sen!2smx"></iframe>
 
 <style>
 	.calendar {
