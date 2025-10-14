@@ -1,0 +1,38 @@
+<script lang="ts">
+    import { navigation } from '$states';
+</script>
+
+<nav class="menu">
+	<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Calendario'}>
+		<a href="/calendario"><h3>Calendario</h3></a>
+	</li>
+	<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Clientes'}>
+		<a href="/clientes"><h3>Clientes</h3></a>
+	</li>
+	<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Promotoras'}>
+		<a href="/promotoras"><h3>Promotoras</h3></a>
+	</li>
+	<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Configuracion'}>
+		<a href="/configuracion"><h3>Configuración</h3></a>
+	</li>
+</nav>
+
+<style>
+    .menu {
+        background-color: white;
+        position: absolute;
+		display: flex;
+		justify-content: space-evenly;
+        flex-direction: column;
+        flex-wrap: wrap;
+		width: 20vh;
+        height: 100vh;
+        right: 0;
+	}
+
+	.menu-item {
+		width: 10rem;
+		padding-bottom: 0.5rem;
+		text-align: center;
+	}
+</style>

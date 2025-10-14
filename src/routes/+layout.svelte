@@ -5,8 +5,15 @@
 	import logo from '$assets/logo.png';
 	import { navigation } from '$states';
 	import { hamburgerIcon } from '$assets';
+	import HamburgerMenu from '$components/hamburgerMenu/HamburgerMenu.svelte';
+
+	let isHamburgerMenuOpen = $state(false);
 
 	let { children } = $props();
+
+	function openCloseHamburgerMenu(): void {
+		isHamburgerMenuOpen = !isHamburgerMenuOpen;
+	}
 </script>
 
 <svelte:head>
@@ -41,12 +48,16 @@
 				</li>
 			</nav>
 		{:else}
-			<button>
+			<button onclick={openCloseHamburgerMenu}>
 				<img src={hamburgerIcon} alt="" class="hamburger" />
 			</button>
 		{/if}
 	{/if}
 </div>
+
+{#if isHamburgerMenuOpen}
+	<HamburgerMenu />
+{/if}
 
 {@render children?.()}
 

@@ -2,8 +2,8 @@
 	import { fade, fly } from 'svelte/transition';
 	import { leftArrowIcon, rightArrowIcon } from '$assets';
 	import type { MonthName, MonthMap } from '$lib/types/types';
-	import CalendarDays from '$components/CalendarDays.svelte';
-	import CalendarMonthList from './CalendarMonthList.svelte';
+	import CalendarDays from '$components/calendar/CalendarDays.svelte';
+	import CalendarMonthList from '../calendar/CalendarMonthList.svelte';
 
 	const currentDate: Date = new Date();
 	const fromYear: number = 2000;
