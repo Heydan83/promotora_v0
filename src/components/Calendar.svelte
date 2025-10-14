@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
 	import { leftArrow, rightArrow } from '$assets';
-	import CalendarDays from '$components/CalendarDays.svelte';
 	import type { MonthName, MonthMap } from '$lib/types/types';
+	import CalendarDays from '$components/CalendarDays.svelte';
+	import CalendarMonthList from './CalendarMonthList.svelte';
 
 	const currentDate: Date = new Date();
 	const fromYear: number = 2000;
@@ -24,6 +25,9 @@
 	]);
 	let selectedYear = $state(currentDate.getFullYear());
 	let selectedMonth = $state(currentDate.getMonth() + 1);
+	let isMonthListOpen: boolean = $state(false); 
+	let mouseX: number = $state(0);
+	let mouseY: number = $state(0);
 
 	function changeYear(prevOrNext: string): void {
 		if (prevOrNext === 'prev') {
@@ -39,6 +43,12 @@
 			if (selectedMonth === 12) selectedMonth = 1;
 			else selectedMonth += 1;
 		}
+	}
+
+	function saveMousePosition(e: MouseEvent): void {
+		isMonthListOpen = !isMonthListOpen;
+		mouseX = e.clientX;
+		mouseY = e.clientY;
 	}
 </script>
 
@@ -76,9 +86,11 @@
 				>
 					{selectedMonth === 1 ? months.get(12) : months.get(selectedMonth - 1)}
 				</button>
-				<h4 class="month-current-text" out:fly={{ x: -100, duration: 40 }}>
-					{months.get(selectedMonth)}
-				</h4>
+				<button onclick={(e) => saveMousePosition(e)}>
+					<h4 class="month-current-text" out:fly={{ x: -100, duration: 40 }}>
+						{months.get(selectedMonth)}
+					</h4>
+				</button>
 				<button
 					class="month-next text-gray-500"
 					onclick={() => changeMonth('next')}
@@ -90,6 +102,12 @@
 	</div>
 	<CalendarDays year={selectedYear} month={selectedMonth} />
 </div>
+
+{#if isMonthListOpen}
+	<CalendarMonthList {mouseX} {mouseY} {selectedMonth} {isMonthListOpen} />
+{/if}
+
+<iframe src="https://maps.app.goo.gl/UeijPWgqdQA5ReYb9" title="mapa"></iframe>
 
 <style>
 	.calendar {

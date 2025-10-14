@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { DayMap, DayName } from '$lib/types/types';
 	import CalendarDay from './CalendarDay.svelte';
 	import CalendarEmptyDay from './CalendarEmptyDay.svelte';
 
