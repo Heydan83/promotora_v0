@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { innerWidth } from 'svelte/reactivity/window';
-	import { navigating } from '$app/stores';
+	import { navigating } from '$app/state';
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$assets/logo.png';
@@ -60,7 +60,7 @@
 	<HamburgerMenu {openCloseHamburgerMenu} />
 {/if}
 
-{#if $navigating}
+{#if navigating}
 	<div class="spinner-bg">
 		<div class="spinner"></div>
 	</div>
