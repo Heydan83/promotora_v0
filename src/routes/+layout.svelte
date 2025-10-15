@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { innerWidth } from 'svelte/reactivity/window';
+	import { navigating } from '$app/stores';
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$assets/logo.png';
-	import { navigation } from '$states';
+	import { Navigation } from '$states';
 	import { closeIcon, hamburgerIcon } from '$assets';
 	import HamburgerMenu from '$components/hamburgerMenu/HamburgerMenu.svelte';
 
@@ -27,22 +28,22 @@
 			<nav class="menu">
 				<li
 					class="menu-item"
-					class:menu-item-selected={navigation.getCurrentPage() === 'Calendario'}
+					class:menu-item-selected={Navigation.getCurrentPage() === 'Calendario'}
 				>
 					<a href="/calendario"><h3>Calendario</h3></a>
 				</li>
-				<li class="menu-item" class:menu-item-selected={navigation.getCurrentPage() === 'Clientes'}>
+				<li class="menu-item" class:menu-item-selected={Navigation.getCurrentPage() === 'Clientes'}>
 					<a href="/clientes"><h3>Clientes</h3></a>
 				</li>
 				<li
 					class="menu-item"
-					class:menu-item-selected={navigation.getCurrentPage() === 'Promotoras'}
+					class:menu-item-selected={Navigation.getCurrentPage() === 'Promotoras'}
 				>
 					<a href="/promotoras"><h3>Promotoras</h3></a>
 				</li>
 				<li
 					class="menu-item"
-					class:menu-item-selected={navigation.getCurrentPage() === 'Configuracion'}
+					class:menu-item-selected={Navigation.getCurrentPage() === 'Configuracion'}
 				>
 					<a href="/configuracion"><h3>Configuración</h3></a>
 				</li>
@@ -59,9 +60,38 @@
 	<HamburgerMenu {openCloseHamburgerMenu} />
 {/if}
 
+{#if $navigating}
+	<div class="spinner-bg">
+		<div class="spinner"></div>
+	</div>
+{/if}
+
 {@render children?.()}
 
 <style>
+	.spinner-bg {
+		height: 100vh;
+		width: 100vh;
+	}
+
+	.spinner {
+		border: 4px solid rgba(0, 0, 0, 0.1);
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		border-left-color: #09f;
+		animation: spin 1s ease infinite;
+	}
+
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
 	.header {
 		display: flex;
 		justify-content: space-evenly;

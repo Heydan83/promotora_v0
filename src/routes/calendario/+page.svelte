@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Calendar from "$components/calendar/Calendar.svelte";
-    import { navigation } from '$states';
+    import { Navigation } from '$states';
 
-    navigation.navigateTo('Calendario');
+    Navigation.navigateTo('Calendario');
 </script>
 
 <Calendar />
