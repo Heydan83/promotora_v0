@@ -4,7 +4,7 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$assets/logo.png';
-	import { Navigation } from '$states';
+	// import { Navigation } from '$states';
 	import { closeIcon, hamburgerIcon } from '$assets';
 	import HamburgerMenu from '$components/hamburgerMenu/HamburgerMenu.svelte';
 
@@ -26,7 +26,7 @@
 	{#if innerWidth.current}
 		{#if innerWidth.current > 990}
 			<nav class="menu">
-				<li
+				<!-- <li
 					class="menu-item"
 					class:menu-item-selected={Navigation.getCurrentPage() === 'Calendario'}
 				>
@@ -46,7 +46,7 @@
 					class:menu-item-selected={Navigation.getCurrentPage() === 'Configuracion'}
 				>
 					<a href="/configuracion"><h3>Configuración</h3></a>
-				</li>
+				</li> -->
 			</nav>
 		{:else}
 			<button onclick={openCloseHamburgerMenu}>

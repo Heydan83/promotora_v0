@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Navigation } from '$states';
+	// import { Navigation } from '$states';
 	import { fade } from 'svelte/transition';
 
-	Navigation.navigateTo('Clientes');
+	// Navigation.navigateTo('Clientes');
 
 	let { data } = $props();
 	let { clients } = data;
