@@ -1,12 +1,12 @@
 <script lang="ts">
+	import '../app.css';
 	import { innerWidth } from 'svelte/reactivity/window';
 	import { navigating } from '$app/state';
-	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$assets/logo.png';
 	import { Navigation } from '$states';
-	import { closeIcon, hamburgerIcon } from '$assets';
+	import { closeIcon, hamburgerIcon, favIcon } from '$assets';
 	import HamburgerMenu from '$components/hamburgerMenu/HamburgerMenu.svelte';
+	import LoadingScreen from '$components/LoadingScreen.svelte';
 
 	let isHamburgerMenuOpen = $state(false);
 
@@ -15,10 +15,12 @@
 	function openCloseHamburgerMenu(): void {
 		isHamburgerMenuOpen = !isHamburgerMenuOpen;
 	}
+
+	$inspect('navigating.complete', navigating.complete);
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href={favIcon} />
 </svelte:head>
 
 <div class="header">
@@ -60,38 +62,13 @@
 	<HamburgerMenu {openCloseHamburgerMenu} />
 {/if}
 
-{#if navigating}
-	<div class="spinner-bg">
-		<div class="spinner"></div>
-	</div>
+{#if navigating.complete !== null}
+	<LoadingScreen />
+{:else}
+	{@render children?.()}
 {/if}
 
-{@render children?.()}
-
 <style>
-	.spinner-bg {
-		height: 100vh;
-		width: 100vh;
-	}
-
-	.spinner {
-		border: 4px solid rgba(0, 0, 0, 0.1);
-		width: 36px;
-		height: 36px;
-		border-radius: 50%;
-		border-left-color: #09f;
-		animation: spin 1s ease infinite;
-	}
-
-	@keyframes spin {
-		0% {
-			transform: rotate(0deg);
-		}
-		100% {
-			transform: rotate(360deg);
-		}
-	}
-
 	.header {
 		display: flex;
 		justify-content: space-evenly;
