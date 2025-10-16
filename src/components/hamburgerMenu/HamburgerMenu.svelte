@@ -33,8 +33,7 @@
 		display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        row-gap: 1rem;
-		width: 35vh;
+		width: 32vh;
         height: 100vh;
         right: 0;
         border: 1px solid black;
@@ -48,7 +47,7 @@
 		width: 10rem;
 		padding-bottom: 0.5rem;
 		text-align: center;
-        padding: 2rem;
+        padding: 1.5rem;
 	}
 
     .menu-item-selected {
