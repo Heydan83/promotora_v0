@@ -4,7 +4,7 @@
 	let { ...client }: ClientsMainView = $props();
 </script>
 
-<form action="" class="card-container">
+<form id={'form' + client.id} action="" class="card-container">
 	<div class="fields">
 		<div class="form-field">
 			<label for={'name' + client.id}>Nombre</label>
@@ -20,7 +20,7 @@
 		</div>
 		<div class="form-field">
 			<label for={'address' + client.id}>Dirección</label>
-			<input id={'address' + client.id} type="text" value={client.address} />
+			<textarea  id={'address' + client.id} rows="3" cols="40">{client.address}</textarea>
 		</div>
 	</div>
     <div class="actions">
@@ -41,7 +41,7 @@
 
 	.fields {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
+        grid-template-columns: 0.8fr 1.2fr;
+		grid-template-rows: 0.8fr 1.2fr;
     }
 </style>
