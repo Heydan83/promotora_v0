@@ -20,7 +20,7 @@
 		</div>
 		<div class="form-field">
 			<label for={'address' + client.id}>Dirección</label>
-			<textarea id={'address' + client.id} rows="3" cols="40">{client.address}</textarea>
+			<textarea id={'address' + client.id} rows="2" cols="40">{client.address}</textarea>
 		</div>
 	</div>
 	<div class="actions">
@@ -59,8 +59,8 @@
 			border: 1px solid #ddd;
 			border-radius: 4px;
 			background-color: #f9f9f9;
-
-			padding: 0 0.3rem;
+            font-size: medium;
+			padding: 0 0.4rem;
 			color: #333;
 			width: fit-content;
 
@@ -84,17 +84,16 @@
 		}
 
 		textarea {
+            padding: 0.4rem 0.4rem;
 			border: 1px solid #ddd;
 			border-radius: 4px;
 			background-color: #f9f9f9;
-
-			padding: 10px 12px;
-			font-size: 1rem;
+			font-size: medium;
 			font-family: inherit;
 			color: #333;
 			width: 100%;
 			box-sizing: border-box; /* Ensures padding is included in the element's total width */
-			min-height: 100px; /* Provides a clear initial height for the textarea */
+			/* min-height: 100px; Provides a clear initial height for the textarea */
 
 			/* Remove the default resize handle for a cleaner look */
 			resize: none;
@@ -106,18 +105,15 @@
 		}
 
 		textarea:focus {
-			outline: none; /* Removes the default focus ring */
+			outline: none;
 			border-color: #007bff;
 			box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 		}
 
 		textarea:disabled {
-			/* Muted colors to indicate it's not interactive */
 			background-color: #f1f1f1;
 			color: #a0a0a0;
 			border-color: #e0e0e0;
-
-			/* Remove interactive effects */
 			box-shadow: none;
 			cursor: not-allowed;
 		}
@@ -128,12 +124,6 @@
 		display: flex;
 		flex-direction: column;
 	}
-
-	/* @media (max-width: 991px) {
-		.card-container {
-			font-size: medium;
-		}
-	} */
 
 	@media (max-width: 991px) {
 		.fields {
