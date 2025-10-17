@@ -44,4 +44,10 @@
         grid-template-columns: 0.8fr 1.2fr;
 		grid-template-rows: 0.8fr 1.2fr;
     }
+
+    @media (max-width: 991px) {
+        textarea {
+            width: 8.5rem;
+        }
+    }
 </style>
