@@ -86,7 +86,7 @@
 			font-size: medium;
 			padding: 0 0.4rem;
 			color: #333;
-			width: 50%;
+			width: 80%;
 
 			transition:
 				border-color 0.2s,
@@ -145,7 +145,7 @@
 		select {
 			background-color: #f9f9f9;
 			font-size: medium;
-			width: 50%;
+			width: 40%;
 
 			option {
 				font-size: medium;
