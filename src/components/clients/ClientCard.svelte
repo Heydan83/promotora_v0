@@ -1,7 +1,13 @@
 <script lang="ts">
-	import type { ClientsMainView } from '$lib/Models';
+	import type { Business_Types, ClientsMainView, Zones } from '$lib/Models';
 
-	let { ...client }: ClientsMainView = $props();
+	interface ClientCard {
+		client: ClientsMainView;
+		zones: Zones[];
+		business_types: Business_Types[];
+	}
+
+	let { client, zones, business_types }: ClientCard = $props();
 </script>
 
 <form id={'form' + client.id} action="" class="card-container">
@@ -12,11 +18,29 @@
 		</div>
 		<div class="form-field">
 			<label for={'zone' + client.id}>Zona</label>
-			<input id={'zone' + client.id} type="text" value={client.zone} />
+			<!-- <input id={'zone' + client.id} type="text" value={client.zone} /> -->
+			<select id={'zone' + client.id}>
+				{#each zones as zone}
+					<option
+						id={'zone' + zone.id_zone}
+						selected={client.id_zone === zone.id_zone}
+						value={zone.zone}>{zone.zone}</option
+					>
+				{/each}
+			</select>
 		</div>
 		<div class="form-field">
 			<label for={'business_type' + client.id}>Tipo de Negocio</label>
-			<input id={'business_type' + client.id} type="text" value={client.business_type} />
+			<!-- <input id={'business_type' + client.id} type="text" value={client.business_type} /> -->
+			<select id={'business_type' + client.id} disabled>
+				{#each business_types as business_type}
+					<option
+						id={'zone' + business_type.id_business_type}
+						selected={client.id_business_type === business_type.id_business_type}
+						value={business_type.business_type}>{business_type.business_type}</option
+					>
+				{/each}
+			</select>
 		</div>
 		<div class="form-field">
 			<label for={'address' + client.id}>Dirección</label>
@@ -59,12 +83,12 @@
 			border: 1px solid #ddd;
 			border-radius: 4px;
 			background-color: #f9f9f9;
-            font-size: medium;
+			font-size: medium;
 			padding: 0 0.4rem;
 			color: #333;
-			width: fit-content;
+			width: 50%;
 
-            transition:
+			transition:
 				border-color 0.2s,
 				box-shadow 0.2s;
 		}
@@ -84,7 +108,7 @@
 		}
 
 		textarea {
-            padding: 0.4rem 0.4rem;
+			padding: 0.4rem 0.4rem;
 			border: 1px solid #ddd;
 			border-radius: 4px;
 			background-color: #f9f9f9;
@@ -117,6 +141,30 @@
 			box-shadow: none;
 			cursor: not-allowed;
 		}
+
+		select {
+			background-color: #f9f9f9;
+			font-size: medium;
+			width: 50%;
+
+			option {
+				font-size: medium;
+			}
+		}
+
+		select:focus {
+			outline: none;
+			border-color: #007bff;
+			box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+		}
+
+        select:disabled {
+            background-color: #f1f1f1;
+			color: #a0a0a0;
+			border-color: #e0e0e0;
+			box-shadow: none;
+			cursor: not-allowed;
+        }
 	}
 
 	.form-field {

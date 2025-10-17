@@ -1,3 +1,4 @@
+import type { Business_Types } from '$lib/Models';
 import type ClientsMainView from '$lib/Models/ClientsMainView.js';
 import type Zones from '$lib/Models/Zones';
 import type { PageLoad } from './$types';
@@ -28,7 +29,5 @@ export const load: PageLoad = async ({ fetch, url }) => {
 	const data2 = await response2.json();
     const data3 = await response3.json();
 
-    console.log(data3);
-
-	return { clients: data.clients as ClientsMainView[], zones: data2.zones as Zones[] };
+	return { clients: data.clients as ClientsMainView[], zones: data2.zones as Zones[], business_types: data3.business_types as Business_Types[] };
 };

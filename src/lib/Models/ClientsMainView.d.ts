@@ -4,7 +4,7 @@ interface ClientsMainView {
     address: string;
     id_zone: number;
     zone: string;
-    id_business_type: string;
+    id_business_type: number;
     business_type: string;
 }
 

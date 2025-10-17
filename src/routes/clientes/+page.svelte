@@ -6,17 +6,15 @@
 	Navigation.navigateTo('Clientes');
 
 	let { data } = $props();
-	let { clients } = data;
+	let { clients, zones, business_types } = data;
 </script>
 
 <div class="clients-container" in:fade={{ duration: 150 }}>
 	{#each clients as client }
-		<ClientCard {...client} />
+		<ClientCard client={client} zones={zones} business_types={business_types} />
 	{/each}
 </div>
 
 <style>
-	.clients-container {
-		
-	}
+	
 </style>

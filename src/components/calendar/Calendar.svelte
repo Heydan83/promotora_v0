@@ -120,7 +120,6 @@
 
 <style>
 	.calendar {
-		/* height: 100vh; */
 		background-color: var(--bg-light-color);
 	}
 
