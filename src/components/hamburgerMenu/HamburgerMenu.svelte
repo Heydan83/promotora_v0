@@ -41,6 +41,7 @@
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         align-items: center;
+		z-index: 9999;
 	}
 
 	.menu-item {

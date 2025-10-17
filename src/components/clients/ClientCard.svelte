@@ -8,7 +8,7 @@
 	<div class="fields">
 		<div class="form-field">
 			<label for={'name' + client.id}>Nombre</label>
-			<input id={'name' + client.id} type="text" value={client.name} />
+			<input id={'name' + client.id} type="text" value={client.name} disabled />
 		</div>
 		<div class="form-field">
 			<label for={'zone' + client.id}>Zona</label>
@@ -43,12 +43,11 @@
 		display: grid;
 		grid-template-columns: 3fr 4fr;
 		grid-template-rows: 1fr 1fr;
+		justify-content: space-around;
 		width: 100%;
 		gap: 0 0.5rem;
 
 		label {
-			top: 10px;
-			left: 12px;
 			font-size: medium;
 			color: #888;
 			transition: all 0.2s ease;
@@ -57,22 +56,42 @@
 		}
 
 		input {
-			border-bottom: 2px solid #ccc;
+			/* border-bottom: 2px solid #ccc;
 			padding: 8px 0;
-			width: 100%;
+			width: 100%; */
+
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			background-color: #f9f9f9;
+
+			padding: 0 0.3rem;
+			color: #333;
+			height: 35%;
+			width: fit-content;
 		}
 
 		input:focus {
-            outline: none;
-			border-bottom-color: #007bff;
+			/* outline: none;
+			border-bottom-color: #007bff; */
+			outline: none;
+			border-color: #007bff;
+			box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+		}
+
+		input:disabled {
+			background-color: #f1f1f1;
+			color: #a0a0a0;
+			border-color: #e0e0e0;
+			box-shadow: none;
+			cursor: not-allowed;
 		}
 
 		textarea {
-			width: 100%;
+			width: fit-content;
 		}
 
-        textarea:focus {
-            outline: none;
+		textarea:focus {
+			outline: none;
 			border-bottom-color: #007bff;
 		}
 	}
@@ -87,7 +106,14 @@
 
 	@media (max-width: 991px) {
 		.card-container {
-			font-size: small;
+			font-size: medium;
+		}
+	}
+
+	@media (max-width: 360px) {
+		.fields {
+			grid-template-columns: 1fr;
+			grid-template-rows: 1fr 1fr;
 		}
 	}
 </style>
