@@ -16,7 +16,7 @@
 </div>
 
 <style>
-	/* .hide-column {
-		display: none;
-	} */
+	.clients-container {
+		
+	}
 </style>
