@@ -20,13 +20,13 @@
 		</div>
 		<div class="form-field">
 			<label for={'address' + client.id}>Dirección</label>
-			<textarea  id={'address' + client.id} rows="3" cols="40">{client.address}</textarea>
+			<textarea id={'address' + client.id} rows="3" cols="40">{client.address}</textarea>
 		</div>
 	</div>
-    <div class="actions">
-        <button>Editar</button>
-        <button>Borrar</button>
-    </div>
+	<div class="actions">
+		<button>Editar</button>
+		<button>Borrar</button>
+	</div>
 </form>
 
 <style>
@@ -34,49 +34,60 @@
 		background-color: var(--bg-grey-color);
 		margin: 1rem;
 		padding: 0.7rem;
-		font-size: small;
-        border-radius: 10px;
-        box-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.5);
+		border-radius: 10px;
+		box-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.5);
+		font-size: large;
 	}
 
 	.fields {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+		display: grid;
+		grid-template-columns: 3fr 4fr;
 		grid-template-rows: 1fr 1fr;
-        width: 100%;
-    }
+		width: 100%;
+		gap: 0 0.5rem;
 
-    .form-field {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-    }
+		label {
+			top: 10px;
+			left: 12px;
+			font-size: medium;
+			color: #888;
+			transition: all 0.2s ease;
+			pointer-events: none;
+			width: fit-content;
+		}
 
-    @media (max-width: 991px) {
-        .card-container {
-            margin: 0.5rem;
-        }
+		input {
+			border-bottom: 2px solid #ccc;
+			padding: 8px 0;
+			width: 100%;
+		}
 
-        .fields {
-            grid-template-columns: 3fr 4fr;
+		input:focus {
+            outline: none;
+			border-bottom-color: #007bff;
+		}
 
-            label {
-                width: fit-content;
-            }
+		textarea {
+			width: 100%;
+		}
 
-            input {
-                width: 100%;
-            }
+        textarea:focus {
+            outline: none;
+			border-bottom-color: #007bff;
+		}
+	}
 
-            textarea {
-                width: 100%;
-            }
-        }
+	.form-field {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+	}
 
-        textarea {
-            width: 70%;
-        }
-    }
+	@media (max-width: 991px) {
+		.card-container {
+			font-size: small;
+		}
+	}
 </style>
