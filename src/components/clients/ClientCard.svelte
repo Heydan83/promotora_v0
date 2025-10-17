@@ -1,50 +1,50 @@
 <script lang="ts">
 	import type { Business_Types, ClientsMainView, Zones } from '$lib/Models';
+	import { ClientCard } from '$lib/states';
 
-	interface ClientCard {
+	interface ClientCardComponent {
 		client: ClientsMainView;
 		zones: Zones[];
 		business_types: Business_Types[];
 	}
 
-	let { client, zones, business_types }: ClientCard = $props();
+	let { client, zones, business_types }: ClientCardComponent = $props();
+    const state = new ClientCard(client);
 </script>
 
-<form id={'form' + client.id} action="" class="card-container">
+<form id={'form' + state.client.id} action="" class="card-container">
 	<div class="fields">
 		<div class="form-field">
-			<label for={'name' + client.id}>Nombre</label>
-			<input id={'name' + client.id} type="text" value={client.name} disabled />
+			<label for={'name' + state.client.id}>Nombre</label>
+			<input id={'name' + state.client.id} type="text" value={state.client.name} disabled />
 		</div>
 		<div class="form-field">
-			<label for={'zone' + client.id}>Zona</label>
-			<!-- <input id={'zone' + client.id} type="text" value={client.zone} /> -->
-			<select id={'zone' + client.id}>
+			<label for={'zone' + state.client.id}>Zona</label>
+			<select id={'zone' + state.client.id}>
 				{#each zones as zone}
 					<option
 						id={'zone' + zone.id_zone}
-						selected={client.id_zone === zone.id_zone}
+						selected={state.client.id_zone === zone.id_zone}
 						value={zone.zone}>{zone.zone}</option
 					>
 				{/each}
 			</select>
 		</div>
 		<div class="form-field">
-			<label for={'business_type' + client.id}>Tipo de Negocio</label>
-			<!-- <input id={'business_type' + client.id} type="text" value={client.business_type} /> -->
-			<select id={'business_type' + client.id} disabled>
+			<label for={'business_type' + state.client.id}>Tipo de Negocio</label>
+			<select id={'business_type' + state.client.id} disabled>
 				{#each business_types as business_type}
 					<option
 						id={'zone' + business_type.id_business_type}
-						selected={client.id_business_type === business_type.id_business_type}
+						selected={state.client.id_business_type === business_type.id_business_type}
 						value={business_type.business_type}>{business_type.business_type}</option
 					>
 				{/each}
 			</select>
 		</div>
 		<div class="form-field">
-			<label for={'address' + client.id}>Dirección</label>
-			<textarea id={'address' + client.id} rows="2" cols="40">{client.address}</textarea>
+			<label for={'address' + state.client.id}>Dirección</label>
+			<textarea id={'address' + state.client.id} rows="2" cols="40">{state.client.address}</textarea>
 		</div>
 	</div>
 	<div class="actions">
@@ -166,6 +166,11 @@
 			cursor: not-allowed;
         }
 	}
+
+    .actions {
+        margin: 1rem 0;
+        right: 0;
+    }
 
 	.form-field {
 		position: relative;
