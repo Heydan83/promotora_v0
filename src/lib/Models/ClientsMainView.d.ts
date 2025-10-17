@@ -3,7 +3,7 @@ interface ClientsMainView {
     name: string;
     address: string;
     zone: string;
-    businessType: string;
+    business_type: string;
 }
 
 export default ClientsMainView;

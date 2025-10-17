@@ -15,8 +15,6 @@
 	function openCloseHamburgerMenu(): void {
 		isHamburgerMenuOpen = !isHamburgerMenuOpen;
 	}
-
-	$inspect('navigating.complete', navigating.complete);
 </script>
 
 <svelte:head>
@@ -115,14 +113,13 @@
 	@media (max-width: 991px) {
 		.header {
 			height: 3.5rem;
-			justify-content: space-between;
+			justify-content: space-around;
 		}
 
 		.logo {
 			max-height: 3.125rem;
 			max-width: 6.25rem;
 			margin: 0.5rem;
-			margin-left: 2rem;
 		}
 
 		.hamburger {
@@ -130,7 +127,6 @@
 			max-width: 1.5rem;
 			max-height: 1.5rem;
 			margin: 2rem;
-			margin-right: 2.5rem;
 		}
 	}
 </style>
