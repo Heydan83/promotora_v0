@@ -41,13 +41,30 @@
 
 	.fields {
         display: grid;
-        grid-template-columns: 0.8fr 1.2fr;
-		grid-template-rows: 0.8fr 1.2fr;
+        grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+        width: 100%;
+    }
+
+    .form-field {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
     }
 
     @media (max-width: 991px) {
+        .card-container {
+            margin: 0.5rem;
+        }
+
+        .fields {
+            grid-template-columns: 3fr 7fr;
+        }
+
         textarea {
-            width: 8.5rem;
+            width: 70%;
         }
     }
 </style>
