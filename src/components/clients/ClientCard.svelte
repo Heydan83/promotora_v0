@@ -60,7 +60,19 @@
         }
 
         .fields {
-            grid-template-columns: 3fr 7fr;
+            grid-template-columns: 3fr 4fr;
+
+            label {
+                width: fit-content;
+            }
+
+            input {
+                width: 100%;
+            }
+
+            textarea {
+                width: 100%;
+            }
         }
 
         textarea {
